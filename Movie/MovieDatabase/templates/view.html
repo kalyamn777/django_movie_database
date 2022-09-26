@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Movie_Database</title>
+</head>
+<body>
+<form action="/view/" method="POST">
+    {% csrf_token %}
+
+    <input type="text"  name="movie_name" placeholder="Enter the MovieName">
+    <button type="submit">Search</button>
+</form>
+<br>
+
+<table>
+    <thead>
+
+        <tr>
+              <th>MovieName</th>
+              <th>ActorName</th>
+              <th>ActressName</th>
+              <th>ReleaseDate</th>
+              <th>DirectorName</th>
+        </tr>
+   </thead>
+
+     <tbody>
+     {% for movie in movies %}
+
+        <tr>
+              <th style="color:orange">{{movie.movie_name}}</th>
+              <th style="color:orange">{{movie.actor_name}}</th>
+              <th style="color:orange">{{movie.actress_name}}</th>
+              <th style="color:orange">{{movie.release_year}}e</th>
+              <th style="color:orange">{{movie.director_name}}</th>
+        </tr>
+     {% endfor %}
+   </tbody>
+
+</table>
+</body>
+</html>
